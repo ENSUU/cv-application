@@ -14,6 +14,10 @@ function Education() {
             {/* User's Education End Date */}
             <label htmlFor="">End Date</label>
             <input type="text" id="userEndDate" name="userEndDate"/>
+            {/* Save Button */}
+            <div className="saveBtnContainer">
+                <button className='saveBtn' type='submit'>Save</button>
+            </div>
         </form>
     )
 }

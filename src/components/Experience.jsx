@@ -20,6 +20,10 @@ function Experience() {
             {/* Position Description */}
             <label htmlFor="userPosDesc">Description</label>
             <textarea name="userPosDesc" id="userPosDesc" cols="30" rows="20"></textarea>
+            {/* Save Button */}
+            <div className="saveBtnContainer">
+                <button className='saveBtn' type='submit'>Save</button>
+            </div>
         </form>
     )
 }

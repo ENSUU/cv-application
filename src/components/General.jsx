@@ -11,6 +11,10 @@ function General() {
             {/* User's Phone Number */}
             <label htmlFor="">Phone Number</label>
             <input id="userPhone" name="userPhone" type="number"/>
+            {/* Save Button */}
+            <div className="saveBtnContainer">
+                <button className='saveBtn' type='submit'>Save</button>
+            </div>
         </form>
     )
 }
