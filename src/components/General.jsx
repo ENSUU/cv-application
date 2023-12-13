@@ -15,7 +15,7 @@ function General() {
             <label htmlFor="userLinkedIn">LinkedIn Profile URL</label>
             <input id="userLinkedIn" name="userLinkedIn" type="text"/>
             {/* User's Phone Number */}
-            <label htmlFor="userGitHub">GitHub Profile</label>
+            <label htmlFor="userGitHub">GitHub Profile URL</label>
             <input id="userGitHub" name="userGitHub" type="text"/>
             {/* Save Button */}
             <div className="saveBtnContainer">
