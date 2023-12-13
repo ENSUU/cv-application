@@ -20,8 +20,14 @@ h1 {
     margin: 0.5rem 0;
 }
 
+.seeInfo {
+    width: 50vw; 
+    padding: 1rem;
+}
+
 .userResume {
-    width: 50vw;
+    height: 50vh;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 .addInfo {

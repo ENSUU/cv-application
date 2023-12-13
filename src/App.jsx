@@ -1,7 +1,11 @@
+// Importing components 
 import Navbar from './components/Navbar';
 import General from './components/General'; 
 import Education from './components/Education';
 import Experience from './components/Experience';
+import Resume from './components/Resume';
+
+// Importing stylesheet
 import './styles/app.css'; 
 
 function App() {
@@ -17,7 +21,7 @@ function App() {
           <Experience />
         </section>
         <section className="seeInfo">
-          <div className="userResume"></div>
+          <Resume />
         </section>  
       </main>
     </>
