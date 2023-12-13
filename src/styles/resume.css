@@ -1,0 +1,26 @@
+h6 {
+    margin: 0;
+}
+
+hr {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+    font-size: 12px;
+}
+
+.userResume {
+    width: clamp(596px, 596px, 40vw);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding: 3rem;
+}
+
+.gradDate, .GPA, .employmentDates {
+    float: right;
+}
+
+.userName, .userInfo {
+    text-align: center;
+}
