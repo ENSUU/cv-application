@@ -1,7 +1,9 @@
+import '../styles/navbar.css';
+
 function Navbar() {
     return (
         <nav>
-            <h1>ENSUU's CV Application</h1>
+            <h1><i>ENSUU's CV Application</i></h1>
         </nav>
     )
 }
