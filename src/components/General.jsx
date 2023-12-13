@@ -1,6 +1,7 @@
 function General() {
     return (
         <form>
+            <h1>General</h1>
             {/* User's Name Field */}
             <label htmlFor="">Name</label>
             <input id="userName" name="userName" type="text"/>

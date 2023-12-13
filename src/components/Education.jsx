@@ -1,6 +1,7 @@
 function Education() {
     return (
         <form>
+            <h1>Education</h1>
             {/* User's School Field */}
             <label htmlFor="">School</label>
             <input id="userSchool" name="userSchool" type="text"/>

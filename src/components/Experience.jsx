@@ -1,6 +1,7 @@
 function Experience() {
     return (
         <form>
+            <h1>Experience</h1>
             {/* Company Name Field */}
             <label htmlFor="userCompany">Company Name</label>
             <input type="text" id="userCompany" name="userCompany"/>
