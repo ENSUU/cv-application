@@ -1,12 +1,11 @@
+import ResumeHeader from './ResumeHeader';
+
 import '../styles/resume.css';
 
 function Resume() {
     return (
         <div className="userResume">
-            <h6 className="userName">(First Name) (Last Name)</h6>
-            <div className="userInfo">
-                <h6>(City) | (Email) | (LinkedIn) | (GitHub)</h6>
-            </div>
+            <ResumeHeader />
             <div className="userEducation">
                 <h6>Education</h6>
                 <hr />

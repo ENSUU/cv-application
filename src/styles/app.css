@@ -1,3 +1,4 @@
+/* Element Selectors */
 main {
     display: flex; 
 }
@@ -20,17 +21,23 @@ h1 {
     margin: 0.5rem 0;
 }
 
+/* Class Selectors */
+.down {
+    float: right;
+    width: 1.5em;
+}
+
 .seeInfo {
     display: flex; 
     justify-content: center;
     width: 50vw; 
+    height: 50vw;
     padding: 1rem;
 }
 
 .addInfo {
-    width: 50vw;
-    padding: 1rem;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding: 1rem 0;
+    width: 50vw; 
 }
 
 .saveBtn {
@@ -44,4 +51,46 @@ h1 {
     margin: 1rem 0;
     font-size: 1rem;
     cursor: pointer;
+}
+
+.general, .education, .experience {
+    padding: 1rem; 
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.hidden {
+    display: none;
+}
+
+.clicked {
+    animation: rotate 0.25s alternate forwards;  
+}
+
+.extended {
+    animation: extend 0.25s alternate forwards;
+}
+
+/* Keyframes for Animations */
+@keyframes rotate {
+    from {
+        transform: rotate(0); 
+    }
+
+    to {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes extend {
+    0% {
+        transform: scaleX(0); 
+    }
+
+    70% {
+        transform: scaleX(1.1);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
 }
