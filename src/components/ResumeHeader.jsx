@@ -1,9 +1,9 @@
-function ResumeHeader() {
+function ResumeHeader({ userName, userCity, userMail, userLinkedIn, userGitHub }) {
     return (
         <div className='userHeader'>
-            <h6 className="userName">(First Name) (Last Name)</h6>
+            <h1 className="userName">{userName}</h1>
             <div className="userInfo">
-                <h6>(City) | (Email) | (LinkedIn) | (GitHub)</h6>
+                <h4>{userCity + ' •'} {userMail + ' •'} {userLinkedIn + ' •'} {userGitHub}</h4>
             </div>
         </div>
     );

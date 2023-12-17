@@ -17,7 +17,19 @@ form input {
     margin: 0.25rem 0;
 }
 
-h1 {
+ul {
+    margin: 0;
+}
+
+li {
+    font-size: 12px;
+}
+
+h4 {
+    margin: 0;
+}
+
+.generalHeader h1, .educationHeader h1, .experienceHeader h1 {
     margin: 0.5rem 0;
 }
 
@@ -67,7 +79,20 @@ h1 {
 }
 
 .extended {
+    transform-origin: top;
     animation: extend 0.25s alternate forwards;
+}
+
+.educationBullet, .experienceBullet{
+    margin-bottom: 1px;
+}
+
+.employmentDates, .experienceLocation {
+    float: right;
+}
+
+.userName {
+    margin: 0;
 }
 
 /* Keyframes for Animations */
@@ -83,14 +108,14 @@ h1 {
 
 @keyframes extend {
     0% {
-        transform: scaleX(0); 
+        transform: scaleY(0); 
     }
 
     70% {
-        transform: scaleX(1.1);
+        transform: scaleY(1.1);
     }
 
     100% {
-        transform: scaleX(1);
+        transform: scaleY(1);
     }
 }

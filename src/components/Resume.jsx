@@ -1,23 +1,27 @@
 import ResumeHeader from './ResumeHeader';
+import ResumeEducation from './ResumeEducation';
+import ResumeExperience from './ResumeExperience';
 
 import '../styles/resume.css';
-
-function Resume() {
+// userSchool, userDegree, userGPA, userGradDate, userCourses, 
+// userCompany, userPosition, userStartDate, userEndDate, positionLocation, positionDescription 
+function Resume({ userName='Your Name', userMail, userCity, userLinkedIn, userGitHub, userEducationList, userExperienceList}) {
     return (
         <div className="userResume">
-            <ResumeHeader />
+            <ResumeHeader userName={userName} userMail={userMail} userCity={userCity} userLinkedIn={userLinkedIn} userGitHub={userGitHub} />
             <div className="userEducation">
-                <h6>Education</h6>
+                <h4>Education</h4>
                 <hr />
-                <p>(College Name) | (College Location) <span className="gradDate">(Grad Date)</span></p>
-                <p><i>(Some Degree in Some Major)</i> <span className="GPA">(Some GPA)</span></p>
-                <p><b>Relevant Coursework</b>: (List coursework here)</p>
+                {userEducationList.map(education => {
+                    return <ResumeEducation key={education.userSchool} education={education} />
+                })}
             </div>
             <div className="userExperience">
-                <h6>Experience</h6>
+                <h4>Experience</h4>
                 <hr />
-                <p>(Company Name) - (Position Title) | (Location) <span className='employmentDates'>(Start Date) - (End Date)</span></p>
-                <p>(Make a list here, iterating through each sentence of inputted description)</p>
+                {userExperienceList.map(experience => {
+                    return <ResumeExperience key={experience.userCompany + experience.userStartDate} userExperience={experience} />
+                })}
             </div>
         </div>
     )
