@@ -7,7 +7,7 @@ function ResumeHeader({ userName, userCity, userMail, userLinkedIn, userGitHub }
                     {userCity && (userCity)} 
                     {userMail && (' • ' + userMail)} 
                     {userLinkedIn && (' • ' + userLinkedIn)} 
-                    {userGitHub && (userGitHub)}
+                    {userGitHub && (' • ' + userGitHub)}
                 </h4>
             </div>
         </div>
