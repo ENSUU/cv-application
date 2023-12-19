@@ -1,6 +1,7 @@
 /* Element Selectors */
 main {
     display: flex; 
+    justify-content: center;
 }
 
 form {
@@ -50,14 +51,14 @@ h4 {
 .seeInfo {
     display: flex; 
     justify-content: center;
-    width: 50vw; 
-    height: 50vw;
+    width: 40vw; 
+    height: 40vw;
     padding: 1rem;
 }
 
 .addInfo {
     padding: 1rem 0;
-    width: 50vw; 
+    width: 40vw; 
 }
 
 .btnContainer {
@@ -133,6 +134,7 @@ h4 {
     text-align: center; 
     font-weight: bold;
 }
+
 
 /* Keyframes for Animations */
 @keyframes rotate {

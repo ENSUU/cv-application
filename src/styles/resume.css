@@ -17,6 +17,12 @@ p {
     padding: 3rem;
 }
 
+.userHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .gradDate, .GPA, .employmentDates {
     float: right;
 }

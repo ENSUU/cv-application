@@ -9,6 +9,9 @@ import Resume from './components/Resume';
 import './styles/app.css'; 
 
 function App() {
+  // Index variables for Education and Experience subtabs. 
+  let eduIndex = 0; 
+  let expIndex = 0; 
 
   // State
   const [userName, setUserName] = useState('');
@@ -61,7 +64,7 @@ function App() {
     const form = document.querySelector('.educationForm'); 
     toggleHidden(form);
     toggleExtend(form);
-    toggleHidden(document.querySelector('.addEducationBtn'));
+    toggleHidden(document.querySelector('.addEducationBtn')); 
   }
 
   const handleClickAddExperience = () => {
@@ -71,38 +74,127 @@ function App() {
     toggleHidden(document.querySelector('.addExperienceBtn'));
   }
 
-  // - When the user clicks the cancel button. 
+  // - When the user clicks the cancel button on the main tabs (Experience, Education, General).  
   const handleCancelEdu = (e) => {
+    // Prevent the webpage from refreshing. 
     e.preventDefault();
+    // Select the form used to enter data. 
     const thisTabsForm = e.target.parentElement.parentElement; 
+    // Toggle hidden class for both Add and the form. 
     toggleHidden(thisTabsForm); 
     toggleHidden(document.querySelector('.addEducationBtn'))
   }
 
   const handleCancelExp = (e) => {
+    // Prevent default behavior of refreshing webpage. 
     e.preventDefault();
+    // Select the form used to enter data. 
     const thisTabsForm = e.target.parentElement.parentElement; 
+    // Toggle hidden class for both Add and the form. 
     toggleHidden(thisTabsForm); 
     toggleHidden(document.querySelector('.addExperienceBtn'))
   }
 
-  // - When the user clicks on a subtab inside either the Education or Experience tabs. 
-  const handleExpandSubtabForm = (e) => {
-    // console.log(e.target);
-    const thisTabsForm = e.target.children[0]; 
+  // - When the user clicks the cancel button on the subtabs (while editing). 
+  const handleCancelEduSubtab = (e) => {
+    // Prevent webpage refresh.
+    e.preventDefault(); 
+    // Select the form used to enter data. 
+    const thisTabsForm = e.target.parentElement.parentElement; 
+    // Toggle hidden for the subtab's form ONLY (not the Add button). 
     toggleHidden(thisTabsForm);
+  }
+
+  const handleCancelExpSubtab = (e) => {
+    // Prevent webpage refresh. 
+    e.preventDefault(); 
+    // Select the form used to enter data. 
+    const thisTabsForm = e.target.parentElement.parentElement; 
+    // Toggle hidden for the subtab's form ONLY (not the Add button). 
+    toggleHidden(thisTabsForm);
+  }
+
+  // - When the user clicks on a subtab inside either the Education or Experience tabs. 
+  const handleExpandEduSubtab = (e) => {
+    // Hide the Add button for Education tab.
+    // toggleHidden(document.querySelector('.addEducationBtn'))
+    // Select the clicked subtab's form. 
+    const thisTabsForm = e.target.children[0]; 
+    console.log(thisTabsForm);
+    // Toggle the visibility of the form. 
+    toggleHidden(thisTabsForm);
+    // Grab the data for the subtab. 
+    const tabInfo = userEducationList[e.target.dataset.index]; 
+    // Set the state variables to the subtab's values. This will also fill in the input fields of the subtab's form with the previous values. 
+    setUserSchool(tabInfo.userSchool);  
+    setUserDegree(tabInfo.userDegree); 
+    setUserGPA(tabInfo.userGPA); 
+    setUserGradDate(tabInfo.userGradDate); 
+    setUserCourses(tabInfo.userCourses);
+  }
+
+  const handleExpandExpSubtab = (e) => {
+    toggleHidden(document.querySelector('.addExperienceBtn'));
+
+    const thisTabsForm = e.target.children[0]; 
+    
+    toggleHidden(thisTabsForm); 
+
+    const tabInfo = userExperienceList[e.target.dataset.index]; 
+
+    setUserCompany(tabInfo.userCompany);
+    setUserPosition(tabInfo.userPosition); 
+    setUserStartDate(tabInfo.userStartDate); 
+    setUserEndDate(tabInfo.userEndDate); 
+    setPositionLocation(tabInfo.positionLocation); 
+    setPositionDescription(tabInfo.positionDescription);
   }
 
   // - When the user wants to edit an already added subtab. 
   const handleEditEducation = (e) => {
+    // Prevent default behavior of refreshing the webpage. 
     e.preventDefault(); 
-    setUserEducationList([...userEducationList, {userSchool, userDegree, userGPA, userGradDate, userCourses}]);
+    // Grab the subtab's data from userEducationList. 
+    const tabInfo = userEducationList[e.target.parentElement.dataset.index]; 
+    // Update the object holding the subtab's information with the new edits made by the user.
+    tabInfo.userSchool = userSchool; 
+    tabInfo.userDegree = userDegree; 
+    tabInfo.userGPA = userGPA; 
+    tabInfo.userGradDate = userGradDate; 
+    tabInfo.userCourses = userCourses; 
+    // Also update userEducationList with the new edits made by the user. 
+    setUserEducationList([...userEducationList]); 
+    // Reset the state variables for the Education tab. 
+    setUserSchool(''); 
+    setUserDegree('');
+    setUserGPA('');
+    setUserGradDate('');
+    setUserCourses('');
+    // Hide the subtab's form. 
     toggleHidden(e.target);
   }
 
   const handleEditExperience = (e) => {
     e.preventDefault(); 
-    setUserEducationList([...userEducationList, {userSchool, userDegree, userGPA, userGradDate, userCourses}]); 
+
+    const tabInfo = userExperienceList[e.target.dataset.index]; 
+    
+    tabInfo.userCompany = userCompany; 
+    tabInfo.userPosition = userPosition;
+    tabInfo.userStartDate = userStartDate; 
+    tabInfo.userEndDate = userEndDate; 
+    tabInfo.positionLocation = positionLocation; 
+    tabInfo.positionDescription = positionDescription; 
+
+    setUserExperienceList([...userExperienceList]); 
+
+    setUserCompany(userCompany); 
+    setUserPosition(userPosition); 
+    setUserStartDate(userStartDate); 
+    setUserEndDate(userEndDate); 
+    setPositionLocation(positionLocation); 
+    setPositionDescription(positionDescription);
+    
     toggleHidden(e.target);
   }
 
@@ -162,11 +254,11 @@ function App() {
           {/* General Tab */}
           <div className="general">
             <div className="generalHeader">
-                <h1 onClick={handleClickGeneral}>General <img className="down" src="/chevron-down.svg" alt="Picture of expand down arrow" /></h1>
+                <h1 onClick={handleClickGeneral}>General Info<img className="down" src="/chevron-down.svg" alt="Picture of expand down arrow" /></h1>
             </div>
             <form className="generalForm hidden">
                 {/* User's Name Field */}
-                <label htmlFor="userName">Name</label>
+                <label htmlFor="userName"> * Name</label>
                 <input 
                     id="userName" 
                     name="userName" 
@@ -175,7 +267,7 @@ function App() {
                     type="text"
                 />
                 {/* User's Email Field */}
-                <label htmlFor="userEmail">Email</label>
+                <label htmlFor="userEmail"> * Email</label>
                 <input 
                     id="userEmail" 
                     name="userEmail" 
@@ -224,7 +316,7 @@ function App() {
             <div className="userEducationTabs hidden">
               {userEducationList.map(education => {
                 return (
-                <div key={education.userSchool + education.userDegree} className="educationTab" onClick={handleExpandSubtabForm}>
+                <div key={eduIndex} className="educationTab" data-index={eduIndex++} onClick={handleExpandEduSubtab}>
                     {/* <h3>{education.userSchool}</h3> */}
                     {education.userSchool}
                     <form className="subEducationForm hidden" onSubmit={handleEditEducation}>
@@ -276,7 +368,7 @@ function App() {
                         ></textarea>
                         <div className="btnContainer">
                           {/* Cancel Button */}
-                          <button className="cancelBtn" onClick={handleCancelEdu}>Cancel</button>
+                          <button className="cancelBtn" onClick={handleCancelEduSubtab}>Cancel</button>
                           {/* Save Button */}
                           <button className='saveBtn' type='submit'>Save</button>
                         </div>
@@ -287,6 +379,7 @@ function App() {
             </div>
             <div className="educationBody hidden">
               <form className="educationForm hidden" onSubmit={handleSubmitEducation}>
+                  <h3>Add New Education</h3>
                   {/* User's School Field */}
                   <label htmlFor="">School</label>
                   <input 
@@ -354,7 +447,7 @@ function App() {
             <div className="userExperienceTabs hidden">
               {userExperienceList.map(experience => {
                 return (
-                  <div key={experience.userCompany + experience.userStartDate} className="experienceTab" onClick={handleExpandSubtabForm}>
+                  <div key={expIndex} className="experienceTab" data-index={expIndex++} onClick={handleExpandExpSubtab}>
                     {experience.userPosition}
                     <form className="subExperienceForm hidden" onSubmit={handleEditExperience}>
                       {/* Company Name Field */}
@@ -414,7 +507,7 @@ function App() {
                       ></textarea>
                       <div className="btnContainer">
                         {/* Cancel Button */}
-                        <button className="cancelBtn" onClick={handleCancelExp}>Cancel</button>
+                        <button className="cancelBtn" onClick={handleCancelExpSubtab}>Cancel</button>
                         {/* Save Button */}
                         <button className='saveBtn' type='submit'>Save</button>
                       </div>
