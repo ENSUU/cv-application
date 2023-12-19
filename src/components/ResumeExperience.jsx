@@ -1,5 +1,4 @@
 function ResumeExperience( { userExperience } ) {
-    console.log(userExperience);
     return (
         <div className='experienceBullet'>
             <p><b>{userExperience.userPosition}</b> <span className='employmentDates'>{userExperience.userStartDate} - {userExperience.userEndDate}</span></p>

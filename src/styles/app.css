@@ -8,7 +8,6 @@ form {
     flex-direction: column;
     padding: 1rem;
     margin: 1rem;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
 }
 
 form input {
@@ -29,11 +28,20 @@ h4 {
     margin: 0;
 }
 
+/* Class Selectors */
+
+.generalForm, .educationForm, .experienceForm {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+}
+
+.subEducationForm, .subExperienceForm {
+    text-align: left;
+}
+
 .generalHeader h1, .educationHeader h1, .experienceHeader h1 {
     margin: 0.5rem 0;
 }
 
-/* Class Selectors */
 .down {
     float: right;
     width: 1.5em;
@@ -52,9 +60,14 @@ h4 {
     width: 50vw; 
 }
 
-.saveBtn {
-    width: 6vw;
-    padding: 8px 16px;
+.btnContainer {
+    display: flex; 
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+.saveBtn, .cancelBtn {
+    padding: 0.5rem 2rem;
     font-weight: bold;
     background-color: black;
     color: white;
@@ -93,6 +106,32 @@ h4 {
 
 .userName {
     margin: 0;
+}
+
+.addEducationBtnContainer, .addExperienceBtnContainer {
+    display: flex; 
+    justify-content: center; 
+}
+
+.addEducationBtn, .addExperienceBtn {
+    cursor: pointer;
+    width: 100%;
+    background: none; 
+    border: none; 
+    font-size: 1.2rem;
+}
+
+.addEducationBtn:hover, .addExperienceBtn:hover {
+    transform: scale(1.1);
+    font-weight: bold; 
+}
+
+.educationTab, .experienceTab {
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+    text-align: center; 
+    font-weight: bold;
 }
 
 /* Keyframes for Animations */

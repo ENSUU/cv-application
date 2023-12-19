@@ -5,7 +5,7 @@ import ResumeExperience from './ResumeExperience';
 import '../styles/resume.css';
 // userSchool, userDegree, userGPA, userGradDate, userCourses, 
 // userCompany, userPosition, userStartDate, userEndDate, positionLocation, positionDescription 
-function Resume({ userName='Your Name', userMail, userCity, userLinkedIn, userGitHub, userEducationList, userExperienceList}) {
+function Resume({ userName, userMail, userCity, userLinkedIn, userGitHub, userEducationList, userExperienceList}) {
     return (
         <div className="userResume">
             <ResumeHeader userName={userName} userMail={userMail} userCity={userCity} userLinkedIn={userLinkedIn} userGitHub={userGitHub} />
