@@ -248,7 +248,7 @@ function App() {
           {/* General Tab */}
           <div className="general">
             <div className="generalHeader">
-                <h1 onClick={handleClickGeneral}>General Info<img className="down" src="/chevron-down.svg" alt="Picture of expand down arrow" /></h1>
+                <h1 onClick={handleClickGeneral}>General Info<img className="down" src="./cv-application/chevron-down.svg" alt="Picture of expand down arrow" /></h1>
             </div>
             <form className="generalForm hidden">
                 {/* User's Name Field */}
@@ -305,7 +305,7 @@ function App() {
           {/* Education Tab */}
           <div className="education">
             <div className="educationHeader">
-                <h1 onClick={handleClickEducation}>Education <img className="down" src="/chevron-down.svg" alt="Picture of expand down arrow" /></h1>
+                <h1 onClick={handleClickEducation}>Education <img className="down" src="./cv-application/chevron-down.svg" alt="Picture of expand down arrow" /></h1>
             </div>
             <div className="userEducationTabs hidden">
               {userEducationList.map(education => {
@@ -439,7 +439,7 @@ function App() {
           {/* Experience Tab */}
           <div className="experience">
             <div className="experienceHeader">
-                <h1 onClick={handleClickExperience}>Experience <img className="down" src="/chevron-down.svg" alt="Picture of expand down arrow" /> </h1>
+                <h1 onClick={handleClickExperience}>Experience <img className="down" src="./cv-application/chevron-down.svg" alt="Picture of expand down arrow" /> </h1>
             </div>
             <div className="userExperienceTabs hidden">
               {userExperienceList.map(experience => {
