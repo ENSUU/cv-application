@@ -13,6 +13,7 @@ function Resume({ userName, userMail, userCity, userLinkedIn, userGitHub, userEd
                 <h4>Education</h4>
                 <hr />
                 {userEducationList.map(education => {
+                    console.log(education);
                     return <ResumeEducation key={education.userSchool} education={education} />
                 })}
             </div>

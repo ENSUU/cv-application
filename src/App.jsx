@@ -375,22 +375,24 @@ function App() {
               <form className="educationForm" onSubmit={handleSubmitEducation}>
                   <h3>Add New Education</h3>
                   {/* User's School Field */}
-                  <label htmlFor="">School</label>
+                  <label htmlFor="">* School</label>
                   <input 
                     id="userSchool" 
                     name="userSchool" 
                     value={userSchool}
                     onChange={(e) => setUserSchool(e.target.value)}
                     type="text"
+                    required 
                   />
                   {/* User's Degree Field */}
-                  <label htmlFor="">Degree</label>
+                  <label htmlFor="">* Degree</label>
                   <input 
                     id="userDegree" 
                     name="userMajor" 
                     value={userDegree}
                     onChange={(e) => setUserDegree(e.target.value)}
                     type="text"
+                    required 
                     />
                   {/* User's GPA */}
                   <label htmlFor="userGPA">Cumulative GPA</label>
@@ -402,13 +404,14 @@ function App() {
                     type="number" 
                   />
                   {/* User's Education End/Graduation Date */}
-                  <label htmlFor="userGradDate">Graduation Date</label>
+                  <label htmlFor="userGradDate">* Graduation Date</label>
                   <input 
                     id="userGradDate" 
                     name="userGradDate"
                     value={userGradDate}
                     onChange={(e) => setUserGradDate(e.target.value)}
                     type="text" 
+                    required 
                   />
                   {/* User's Relevant Coursework */}
                   <label htmlFor="userRelCourses">Relevant Coursework</label>
@@ -513,43 +516,47 @@ function App() {
             <div className="experienceBody hidden">
               <form className="experienceForm" onSubmit={handleSubmitExperience}>
                   {/* Company Name Field */}
-                  <label htmlFor="userCompany">Company Name</label>
+                  <label htmlFor="userCompany">* Company Name</label>
                   <input 
                     type="text" 
                     id="userCompany" 
                     name="userCompany" 
                     value={userCompany} 
                     onChange={(e) => setUserCompany(e.target.value)}
+                    required 
                   />
                   {/* Position @ Company */}
-                  <label htmlFor="userPos">Position Title</label>
+                  <label htmlFor="userPos">* Position Title</label>
                   <input 
                     type="text" 
                     id="userPos" 
                     name="userPos" 
                     value={userPosition}
                     onChange={(e) => setUserPosition(e.target.value)}
+                    required 
                   />
                   {/* Position Start Date */}
-                  <label htmlFor="userPosStartDate">Start Date</label>
+                  <label htmlFor="userPosStartDate">* Start Date</label>
                   <input 
                     type="text" 
                     id="userPosStartDate" 
                     name="userPosStartDate" 
                     value={userStartDate}
                     onChange={(e) => setUserStartDate(e.target.value)}
+                    required 
                   />
                   {/* Position End Date */}
-                  <label htmlFor="userPosEndDate">End Date</label>
+                  <label htmlFor="userPosEndDate">* End Date</label>
                   <input 
                     type="text" 
                     id="userPosEndDate" 
                     name="userPosEndDate" 
                     value={userEndDate}
                     onChange={(e) => setUserEndDate(e.target.value)}
+                    required 
                   /> 
                   {/* Position Location */}
-                  <label htmlFor="userPosLoc">Location</label>
+                  <label htmlFor="userPosLoc">* Location</label>
                   <input 
                     type="text" 
                     id="userPosLoc" 
@@ -558,7 +565,7 @@ function App() {
                     onChange={(e) => setPositionLocation(e.target.value)}
                   />
                   {/* Position Description */}
-                  <label htmlFor="userPosDesc">Description</label>
+                  <label htmlFor="userPosDesc">* Description</label>
                   <textarea 
                     name="userPosDesc" 
                     id="userPosDesc" 
@@ -566,6 +573,7 @@ function App() {
                     rows="10"
                     value={positionDescription}
                     onChange={(e) => setPositionDescription(e.target.value)}
+                    required 
                   ></textarea>
                   <div className="btnContainer">
                     {/* Cancel Button */}
