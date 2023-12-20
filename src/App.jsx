@@ -49,14 +49,14 @@ function App() {
     document.querySelector('.educationHeader img').classList.toggle('clicked');
     toggleHidden(document.querySelector('.userEducationTabs'));
     toggleHidden(document.querySelector('.educationBody'));
-    toggleHidden(document.querySelector('.addEducationBtn'))
+    toggleHidden(document.querySelector('.addEducationBtnContainer'))
   }
 
   const handleClickExperience = () => {
     document.querySelector('.experienceHeader img').classList.toggle('clicked');
     toggleHidden(document.querySelector('.userExperienceTabs'));
     toggleHidden(document.querySelector('.experienceBody'));
-    toggleHidden(document.querySelector('.addExperienceBtn'));
+    toggleHidden(document.querySelector('.addExperienceBtnContainer'));
   }
 
   // - When the user adds to Education/Experience. 
@@ -64,14 +64,12 @@ function App() {
     const form = document.querySelector('.educationForm'); 
     toggleHidden(form);
     toggleExtend(form);
-    toggleHidden(document.querySelector('.addEducationBtn')); 
   }
 
   const handleClickAddExperience = () => {
     const form = document.querySelector('.experienceForm'); 
     toggleHidden(form);
     toggleExtend(form); 
-    toggleHidden(document.querySelector('.addExperienceBtn'));
   }
 
   // - When the user clicks the cancel button on the main tabs (Experience, Education, General).  
@@ -82,7 +80,7 @@ function App() {
     const thisTabsForm = e.target.parentElement.parentElement; 
     // Toggle hidden class for both Add and the form. 
     toggleHidden(thisTabsForm); 
-    toggleHidden(document.querySelector('.addEducationBtn'))
+    // toggleHidden(document.querySelector('.addEducationBtn'))
   }
 
   const handleCancelExp = (e) => {
@@ -92,7 +90,7 @@ function App() {
     const thisTabsForm = e.target.parentElement.parentElement; 
     // Toggle hidden class for both Add and the form. 
     toggleHidden(thisTabsForm); 
-    toggleHidden(document.querySelector('.addExperienceBtn'))
+    // toggleHidden(document.querySelector('.addExperienceBtn'))
   }
 
   // - When the user clicks the cancel button on the subtabs (while editing). 
@@ -116,8 +114,6 @@ function App() {
 
   // - When the user clicks on a subtab inside either the Education or Experience tabs. 
   const handleExpandEduSubtab = (e) => {
-    // Hide the Add button for Education tab.
-    // toggleHidden(document.querySelector('.addEducationBtn'))
     // Select the clicked subtab's form. 
     const thisTabsForm = e.target.children[0]; 
     console.log(thisTabsForm);
@@ -214,7 +210,6 @@ function App() {
 
       const form = document.querySelector('.educationForm'); 
       toggleHidden(form);
-      toggleHidden(document.querySelector('.addEducationBtn'))
   }
 
   const handleSubmitExperience = (e) => {
@@ -232,7 +227,6 @@ function App() {
 
     const form = document.querySelector('.experienceForm'); 
     toggleHidden(form);
-    toggleHidden(document.querySelector('.addExperienceBtn'));
   }
 
   // - Used to handle hiding elements & class-based animations. 
@@ -378,7 +372,7 @@ function App() {
               })}
             </div>
             <div className="educationBody hidden">
-              <form className="educationForm hidden" onSubmit={handleSubmitEducation}>
+              <form className="educationForm" onSubmit={handleSubmitEducation}>
                   <h3>Add New Education</h3>
                   {/* User's School Field */}
                   <label htmlFor="">School</label>
@@ -434,8 +428,8 @@ function App() {
                   </div>
               </form>
             </div>
-            <div className="addEducationBtnContainer">
-              <button className='addEducationBtn hidden' onClick={handleClickAddEducation}>Add +</button>
+            <div className="addEducationBtnContainer hidden">
+              <button className='addEducationBtn' onClick={handleClickAddEducation}>Add +</button>
             </div>
           </div>
 
@@ -517,7 +511,7 @@ function App() {
               })}
             </div>
             <div className="experienceBody hidden">
-              <form className="experienceForm hidden" onSubmit={handleSubmitExperience}>
+              <form className="experienceForm" onSubmit={handleSubmitExperience}>
                   {/* Company Name Field */}
                   <label htmlFor="userCompany">Company Name</label>
                   <input 
@@ -581,8 +575,8 @@ function App() {
                   </div>
               </form>
             </div>
-            <div className="addExperienceBtnContainer">
-              <button className='addExperienceBtn hidden' onClick={handleClickAddExperience}>Add +</button>
+            <div className="addExperienceBtnContainer hidden">
+              <button className='addExperienceBtn' onClick={handleClickAddExperience}>Add +</button>
             </div>
           </div>
         </section>

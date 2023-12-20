@@ -109,11 +109,6 @@ h4 {
     margin: 0;
 }
 
-.addEducationBtnContainer, .addExperienceBtnContainer {
-    display: flex; 
-    justify-content: center; 
-}
-
 .addEducationBtn, .addExperienceBtn {
     cursor: pointer;
     width: 100%;
