@@ -13,6 +13,7 @@ p {
 
 .userResume {
     width: clamp(596px, 596px, 40vw);
+    height: 50vh;
     box-shadow: var(--box-shadow);
     padding: 3rem;
 }

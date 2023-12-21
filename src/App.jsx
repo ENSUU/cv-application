@@ -515,6 +515,7 @@ function App() {
             </div>
             <div className="experienceBody hidden">
               <form className="experienceForm" onSubmit={handleSubmitExperience}>
+                <h3>Add New Experience</h3>
                   {/* Company Name Field */}
                   <label htmlFor="userCompany">* Company Name</label>
                   <input 

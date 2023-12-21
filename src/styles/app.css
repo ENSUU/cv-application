@@ -1,6 +1,6 @@
 /* Variables */
 :root {
-    --box-shadow: 0 2px 4px 0 rgba(0,0,0,.5); 
+    --box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
 }
 
 /* Element Selectors */
@@ -36,9 +36,9 @@ h4 {
 
 /* Class Selectors */
 
-.generalForm, .educationForm, .experienceForm {
+/* .generalForm, .educationForm, .experienceForm {
     box-shadow: var(--box-shadow);
-}
+} */
 
 .subEducationForm, .subExperienceForm {
     text-align: left;
@@ -57,8 +57,8 @@ h4 {
     display: flex; 
     justify-content: center;
     width: 40vw; 
-    height: 40vw;
-    padding: 1rem;
+    margin: 2rem;
+
 }
 
 .addInfo {
@@ -162,16 +162,53 @@ h4 {
     }
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
+    .userResume {
+        padding: 2rem;
+    }
+} */
+
+@media (max-width: 1024px) {
     main {
-        display: block;
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .addInfo, .seeInfo {
-        width: 100vw; 
+        width: 95vw; 
     }
 
-    .seeInfo {
-        padding: 1rem 0;
+    .userResume {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 425px) {
+    .btnContainer {
+        justify-content: center;
+    }
+
+    .educationForm, .experienceForm {
+        padding: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .educationForm, .experienceForm {
+        margin: 0;
+    }
+
+    .btnContainer {
+        margin-top: 1rem;
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .cancelBtn, .saveBtn {
+        margin: 0.25rem 0;
+    }
+
+    .addEducationBtn, .addExperienceBtn {
+        margin-top: 12px;
     }
 }
