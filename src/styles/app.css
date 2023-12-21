@@ -1,6 +1,7 @@
 /* Variables */
 :root {
     --box-shadow: 0 2px 4px 0 rgba(0,0,0,.5);
+    font-size: 16px;
 }
 
 /* Element Selectors */
@@ -161,12 +162,6 @@ h4 {
         transform: scaleY(1);
     }
 }
-
-/* @media (max-width: 768px) {
-    .userResume {
-        padding: 2rem;
-    }
-} */
 
 @media (max-width: 1024px) {
     main {
